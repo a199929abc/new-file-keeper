@@ -1,0 +1,9 @@
+1.Simply merge my function to your Code and change all the namespace and follow your syntax
+	Problem might face 
+		1.1 syntax error.
+		1.2 looks like not too easy to just merge into the code.
+2.Let my program run independently.For example, set up a timer like run once per hour or per day. Your current script pick up the generated tar file, rename it, send it to the server.
+	Problem might face:
+		2.1 Not sure how to set up a timer now.(Will looking into it)
+		2.2 Need more infomation about script running environment.
+		
