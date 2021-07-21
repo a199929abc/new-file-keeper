@@ -1,0 +1,13 @@
+autoGenerateFile.sh
+c.txt
+file10.txt
+file3.txt
+file4.txt
+file5.txt
+file8.txt
+file9.txt
+getUpdate.sh
+newFilename.txt
+oldFilename.txt
+packFolder
+possibleApproach.txt
