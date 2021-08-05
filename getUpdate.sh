@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #TARFILE="(date +%Y%m%d_%H%M%S).tgz"
-cd /home/crontest1
+cd /home/kaiheng
 
 #delete previous tar file at first place
 if [ -f "sendPack.tar.gz" ]; then 
@@ -11,7 +11,12 @@ fi
 
 
 rm -rf c.txt
-
+if [ ! -d "/home/kaiheng/packFolder" ]; then
+mkdir /home/kaiheng/packFolder
+else
+echo "Folder exist, need to be renew"
+rm -rf /home/kaiheng/packFolder/*
+fi   
 
 # Get all the file name and store in a txt file 
 #path=$1
@@ -19,8 +24,7 @@ rm -rf c.txt
 #for filename in $files
 #do echo $filename >> temp.txt
 #done
-fullpath=`pwd`
-path=$1
+
 function read_dir(){
   for file in `ls $1`
   do  
@@ -32,8 +36,7 @@ function read_dir(){
     fi
 done
 }
-read_dir $1
-
+read_dir /home/kaiheng
 
 
 sort -n temp.txt | uniq>newFilename.txt
@@ -48,7 +51,7 @@ rm -r old_u.txt
 
 
 # Re scan the folder set new file to old file and keep track for next update use
-read_dir $1
+read_dir /home/kaiheng
 
 sort -n temp.txt | uniq>oldFilename.txt
 rm -rf temp.txt
@@ -63,19 +66,12 @@ do
 done
 echo "-----------------------------------------"
 #---------------------------NEED-------------MODIFY---------------PATH---------BELOW`---------------
-#clean the temp folder for package use 
-if [ ! -d "/home/crontest1/packFolder" ]; then
-mkdir /home/crontest1/packFolder
-else
-echo "Folder exist, need to be renew"
-rm -rf /home/crontest1/packFolder/*
-fi
+#clean the temp folder for package use
 
 # copy new file in new file list to temp folder
 for line in `cat c.txt`
 do
-
-cp $line /home/crontest1/packFolder/
+cp $line /home/kaiheng/packFolder/
 done
 
 
